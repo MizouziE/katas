@@ -9,7 +9,7 @@ class PlayingWithDigitsTest extends TestCase
         $this->assertSame($expected, $actual);
     }
     /** @test */
-    public function testBasics() {        
+    public function it_returns_expected_result() {        
         $this->revTest(PlayingWithDigits::digPow(89, 1), 1);
         $this->revTest(PlayingWithDigits::digPow(92, 1), -1);
         $this->revTest(PlayingWithDigits::digPow(46288, 3), 51);
