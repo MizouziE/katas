@@ -1,8 +1,8 @@
 # Coding Katas
-Taken from [Laracasts](https://laracasts.com/@MizouziE)
+Taken from [Laracasts](https://laracasts.com/@MizouziE) and [CodeWars](https://www.codewars.com/users/MizouziE)
 
 ## What and why
-A collection of exercises to practice thinking like a programmer
+A collection of exercises to practice thinking like a programmer. Those from Laracasts were a nice place to start and the added challenge of getting those taken from codewars to function as part of the whole set up has helped develop understanding of PHPUnit.
 
 ### How to Think Like a Programmer?
 ![hmmm](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200326191711/How-to-Think-Like-a-Programmer.png)
