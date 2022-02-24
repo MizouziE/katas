@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 class DetectPangramTest extends TestCase {
     /** @test */
-    public function it_detects_a_pangram() {
+    public function test_it_detects_a_pangram() {
     # Pangrams:
     $result4 = DetectPangram::detect_pangram("The quick brown fox jumps over the lazy dog.");
     $this->assertEquals(true, $result4);
