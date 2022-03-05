@@ -36,4 +36,23 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(285365)[1], 3);
         $this->revTest(FindTheSmallest::smallest(285365)[2], 1);
     }
+
+    /**@test */
+    public function test_it_works_with_long_complex_input() {
+        $this->revTest(FindTheSmallest::smallest(187863002809)[0], 18786300289);
+        $this->revTest(FindTheSmallest::smallest(187863002809)[1], 10);
+        $this->revTest(FindTheSmallest::smallest(187863002809)[2], 0);
+    }    
+
+//     Failed asserting that two arrays are equal.
+// Expected: Array (
+//     0 => 18786300289
+//     1 => 10
+//     2 => 0
+// )
+// Actual  : Array (
+//     0 => 18786302809
+//     1 => 6
+//     2 => 0
+// )
 }
