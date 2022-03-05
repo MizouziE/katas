@@ -7,14 +7,17 @@ class FindTheSmallest
     public static function smallest($n) {
         $splitToSort = $splitToWork = str_split($n);
         sort($splitToSort);
-        $lowest = $splitToSort[0];
+        if ($splitToSort[0]!==$splitToWork[0]) {
+            $lowest = $splitToSort[0];
+        } else {
+            $lowest = $splitToSort[1];
+        }
         $indexOfLowestOri = array_search($lowest, $splitToWork);
         $indexOfLowestNow = array_search($lowest, $splitToSort);
         unset($splitToWork[$indexOfLowestOri]);
         array_splice($splitToWork, $indexOfLowestNow, 0, $lowest);
         $newN = intval(implode('', $splitToWork));
-      //   return $newN;
-        return [$newN, $indexOfLowestOri, $indexOfLowestNow];
+        return $indexOfLowestOri!==1 ? [$newN, $indexOfLowestOri, $indexOfLowestNow] : [$newN, $indexOfLowestNow, $indexOfLowestOri];
       }
 }
 
