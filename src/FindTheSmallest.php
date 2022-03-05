@@ -11,10 +11,6 @@ class FindTheSmallest
         // sort one by asc order
         sort($splitToSort);
 
-        //count reoccuances
-        $bunch = array_keys($splitToWork, $splitToSort[0]);
-        $count = count($bunch)-1;
-
         // check if $n didn't already start with it's lowest digit
         if ($splitToSort[0]!==$splitToWork[0]) {
             $lowest = $splitToSort[0];
@@ -22,8 +18,16 @@ class FindTheSmallest
             $lowest = $splitToSort[1];
         }
 
-        // set output params
+        //count reoccuances to set output param
+        $bunch = array_keys($splitToWork, $splitToSort[0]);
+        $count = count($bunch);
+        if ($count>1) {
+        $indexOfLowestOri = array_search($lowest, array_reverse($splitToWork, true));            
+        } else {
         $indexOfLowestOri = array_search($lowest, $splitToWork);
+        }
+
+        // set other output params
         $indexOfLowestNow = array_search($lowest, $splitToSort);
 
         // remove the digit to be "repositioned"
