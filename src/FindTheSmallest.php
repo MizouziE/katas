@@ -11,6 +11,10 @@ class FindTheSmallest
         // sort one by asc order
         sort($splitToSort);
 
+        //count reoccuances
+        $bunch = array_keys($splitToWork, $splitToSort[0]);
+        $count = count($bunch)-1;
+
         // check if $n didn't already start with it's lowest digit
         if ($splitToSort[0]!==$splitToWork[0]) {
             $lowest = $splitToSort[0];
