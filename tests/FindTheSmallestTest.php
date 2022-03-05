@@ -10,10 +10,11 @@ class FindTheSmallestTest extends TestCase
     }
 
     /**@test */
-    public function it_works() {
+    public function test_it_works() {
         $this->revTest(FindTheSmallest::smallest(261235), [126235, 2, 0]);
         $this->revTest(FindTheSmallest::smallest(209917), [29917, 0, 1]);
         $this->revTest(FindTheSmallest::smallest(285365), [238565, 3, 1]);
+        $this->revTest(FindTheSmallest::smallest(187863002809), [18786300289, 10, 0]);
     }
 
     /**@test */
@@ -44,15 +45,16 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(187863002809)[2], 0);
     }    
 
-//     Failed asserting that two arrays are equal.
-// Expected: Array (
-//     0 => 18786300289
-//     1 => 10
-//     2 => 0
-// )
-// Actual  : Array (
-//     0 => 18786302809
-//     1 => 6
-//     2 => 0
-// )
+    //TODO - figure out tests for error below
+    // Failed asserting that two arrays are equal.
+    // Expected: Array (
+    //     0 => 358557539
+    //     1 => 0
+    //     2 => 8
+    // )
+    // Actual  : Array (
+    //     0 => 393585575
+    //     1 => 8
+    //     2 => 0
+    // )
 }
