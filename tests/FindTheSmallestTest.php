@@ -15,6 +15,7 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(209917), [29917, 0, 1]);
         $this->revTest(FindTheSmallest::smallest(285365), [238565, 3, 1]);
         $this->revTest(FindTheSmallest::smallest(187863002809), [18786300289, 10, 0]);
+        $this->revTest(FindTheSmallest::smallest(935855753), [358557539, 0, 8]);
     }
 
     /**@test */
