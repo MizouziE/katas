@@ -11,36 +11,38 @@ class FindTheSmallest
         // sort one by asc order
         sort($splitToSort);
 
-        // check if $n didn't already start with it's lowest digit
-        if ($splitToSort[0]!==$splitToWork[0]) {
-            $lowest = $splitToSort[0];
+        // check if $n didn't already start with it's highest/lowest digit
+        if ($splitToSort[count($splitToSort)-1]===$splitToWork[0]) {
+            $mover = $splitToSort[count($splitToSort)-1];
+        } else if ($splitToSort[0]!==$splitToWork[0]) {
+            $mover = $splitToSort[0];
         } else {
-            $lowest = $splitToSort[1];
+            $mover = $splitToSort[1];
         }
 
         //count reoccuances to set output param
-        $bunch = array_keys($splitToWork, $splitToSort[0]);
+        $bunch = array_keys($splitToWork, $mover);
         $count = count($bunch);
         if ($count>1) {
-        $indexOfLowestOri = array_search($lowest, array_reverse($splitToWork, true));            
+        $indexOfMoverOri = array_search($mover, array_reverse($splitToWork, true));            
         } else {
-        $indexOfLowestOri = array_search($lowest, $splitToWork);
+        $indexOfMoverOri = array_search($mover, $splitToWork);
         }
 
         // set other output params
-        $indexOfLowestNow = array_search($lowest, $splitToSort);
+        $indexOfMoverNow = array_search($mover, $splitToSort);
 
         // remove the digit to be "repositioned"
-        unset($splitToWork[$indexOfLowestOri]);
+        unset($splitToWork[$indexOfMoverOri]);
 
         // re-position lowest digit
-        array_splice($splitToWork, $indexOfLowestNow, 0, $lowest);
+        array_splice($splitToWork, $indexOfMoverNow, 0, $mover);
 
         // set new $n value to be returned
         $newN = intval(implode('', $splitToWork));
 
         // return an array of desired params
-        return $indexOfLowestOri!==1 ? [$newN, $indexOfLowestOri, $indexOfLowestNow] : [$newN, $indexOfLowestNow, $indexOfLowestOri];
+        return $indexOfMoverOri!==1 ? [$newN, $indexOfMoverOri, $indexOfMoverNow] : [$newN, $indexOfMoverNow, $indexOfMoverOri];
       }
 }
 
