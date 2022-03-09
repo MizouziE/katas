@@ -11,8 +11,11 @@ class FindTheSmallest
         // sort one by asc order
         sort($splitToSort);
 
+        // check for large start and zeros
+        if ($splitToSort[count($splitToSort)-1]===$splitToWork[0] && in_array(0, $splitToSort)) {
+            $mover = 0;
         // check if $n didn't already start with it's highest/lowest digit
-        if ($splitToSort[count($splitToSort)-1]===$splitToWork[0]) {
+        } else if ($splitToSort[count($splitToSort)-1]===$splitToWork[0]) {
             $mover = $splitToSort[count($splitToSort)-1];
         } else if ($splitToSort[0]!==$splitToWork[0]) {
             $mover = $splitToSort[0];

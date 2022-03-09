@@ -16,6 +16,8 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(285365), [238565, 3, 1]);
         $this->revTest(FindTheSmallest::smallest(187863002809), [18786300289, 10, 0]);
         $this->revTest(FindTheSmallest::smallest(935855753), [358557539, 0, 8]);
+        $this->revTest(FindTheSmallest::smallest(94883608842), 9488368842, 6, 0);
+        $this->revTest(FindTheSmallest::smallest(1598536651115738), 1159853665115738, 9, 0);
     }
 
     /**@test */
@@ -52,6 +54,21 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(935855753)[1], 0);
         $this->revTest(FindTheSmallest::smallest(935855753)[2], 8);
     }   
+
+    /**@test */
+    public function test_it_works_with_first_largest_and_zero_somewhere() {
+        $this->revTest(FindTheSmallest::smallest(94883608842)[0], 9488368842);
+        $this->revTest(FindTheSmallest::smallest(94883608842)[1], 6);
+        $this->revTest(FindTheSmallest::smallest(94883608842)[2], 0);
+    }   
+
+    /**@test */
+    public function test_it_works_with_first_smallest_and_reoccuring() {
+        $this->revTest(FindTheSmallest::smallest(1598536651115738)[0], 1159853665115738);
+        $this->revTest(FindTheSmallest::smallest(1598536651115738)[1], 9);
+        $this->revTest(FindTheSmallest::smallest(1598536651115738)[2], 0);
+    }   
+
     //TODO - figure out tests for error below
     // Failed asserting that two arrays are equal.
     // Expected: Array (
