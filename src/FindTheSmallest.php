@@ -6,7 +6,7 @@ class FindTheSmallest
 {
     public static function smallest($n) {
         // create two identical arrays to manipulate
-        $splitToSort = $splitToWork = str_split($n);
+        $splitToSort = $splitToWork = $sliceMe = str_split($n);
 
         // sort one by asc order
         sort($splitToSort);
@@ -26,10 +26,14 @@ class FindTheSmallest
         //count reoccuances to set output param
         $bunch = array_keys($splitToWork, $mover);
         $count = count($bunch);
-        if ($count>1) {
-        $indexOfMoverOri = array_search($mover, array_reverse($splitToWork, true));            
+        if ($count>1 && $splitToWork[0]===$mover) {
+            // $sliceMe = $splitToWork;
+            $withoutFirst = array_slice($sliceMe, 1);
+            $indexOfMoverOri = array_search($mover, $withoutFirst)+1;
+        } else if ($count>1) {
+            $indexOfMoverOri = array_search($mover, array_reverse($splitToWork, true));            
         } else {
-        $indexOfMoverOri = array_search($mover, $splitToWork);
+            $indexOfMoverOri = array_search($mover, $splitToWork);
         }
 
         // set other output params
