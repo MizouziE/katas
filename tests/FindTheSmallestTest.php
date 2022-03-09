@@ -55,13 +55,26 @@ class FindTheSmallestTest extends TestCase
     //TODO - figure out tests for error below
     // Failed asserting that two arrays are equal.
     // Expected: Array (
-    //     0 => 358557539
-    //     1 => 0
-    //     2 => 8
+    //     0 => 9488368842
+    //     1 => 6
+    //     2 => 0
     // )
     // Actual  : Array (
-    //     0 => 393585575
-    //     1 => 8
+    //     0 => 48836088429
+    //     1 => 0
+    //     2 => 10
+    // )
+    // Completed in 0.57ms
+    // testRandom
+    // Failed asserting that two arrays are equal.
+    // Expected: Array (
+    //     0 => 1159853665115738
+    //     1 => 9
+    //     2 => 0
+    // )
+    // Actual  : Array (
+    //     0 => 1159853665115738
+    //     1 => 11
     //     2 => 0
     // )
 }
