@@ -27,7 +27,6 @@ class FindTheSmallest
         $bunch = array_keys($splitToWork, $mover);
         $count = count($bunch);
         if ($count>1 && $splitToWork[0]===$mover) {
-            // $sliceMe = $splitToWork;
             $withoutFirst = array_slice($sliceMe, 1);
             $indexOfMoverOri = array_search($mover, $withoutFirst)+1;
         } else if ($count>1) {
