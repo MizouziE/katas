@@ -6,12 +6,12 @@ use PHPUnit\Framework\TestCase;
 class ErrorsHistogramTest extends TestCase
 {
     public function dotest($s, $expect) {
-        printf("s: %s\r\n", $s);
+        // printf("s: %s\r\n", $s);
         $actual = ErrorsHistogram::hist($s);
-        printf("Actual: %s\r\n", $actual);
-        printf("Expect: %s\r\n", $expect);
+        // printf("Actual: %s\r\n", $actual);
+        // printf("Expect: %s\r\n", $expect);
         $this->assertEquals($expect, $actual);
-        printf("%s\r\n", "-");
+        // printf("%s\r\n", "-");
     }
     /** @test */
     public function test_it_prints_expected() {        
