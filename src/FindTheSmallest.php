@@ -38,11 +38,17 @@ class FindTheSmallest
         // set other output params
         $indexOfMoverNow = array_search($mover, $splitToSort);
 
-        // remove the digit to be "repositioned"
-        unset($splitToWork[$indexOfMoverOri]);
-
-        // re-position lowest digit
-        array_splice($splitToWork, $indexOfMoverNow, 0, $mover);
+        // if it isn't just all reoccuring...
+        if ((array_reduce($splitToWork, fn ($a, $b) => $a+$b, 0)/$splitToWork[0])===count($splitToWork)) {
+            $indexOfMoverNow = 0;
+            $indexOfMoverOri = 0;
+        } else {
+            // remove the digit to be "repositioned"
+            unset($splitToWork[$indexOfMoverOri]);
+    
+            // re-position lowest digit
+            array_splice($splitToWork, $indexOfMoverNow, 0, $mover);
+        }    
 
         // set new $n value to be returned
         $newN = intval(implode('', $splitToWork));

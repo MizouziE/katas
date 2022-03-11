@@ -18,6 +18,7 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(935855753), [358557539, 0, 8]);
         $this->revTest(FindTheSmallest::smallest(94883608842), [9488368842, 6, 0]);
         $this->revTest(FindTheSmallest::smallest(1598536651115738), [1159853665115738, 9, 0]);
+        $this->revTest(FindTheSmallest::smallest(111111111), [111111111, 0, 0]);
     }
 
     /**@test */
@@ -67,6 +68,13 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(1598536651115738)[0], 1159853665115738);
         $this->revTest(FindTheSmallest::smallest(1598536651115738)[1], 9);
         $this->revTest(FindTheSmallest::smallest(1598536651115738)[2], 0);
+    }   
+
+    /**@test */
+    public function test_it_works_with_nun_but_reoccuring() {
+        $this->revTest(FindTheSmallest::smallest(111111111)[0], 111111111);
+        $this->revTest(FindTheSmallest::smallest(111111111)[1], 0);
+        $this->revTest(FindTheSmallest::smallest(111111111)[2], 0);
     }   
 
     //TODO - figure out tests for error below
