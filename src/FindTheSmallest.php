@@ -5,60 +5,36 @@ namespace App;
 class FindTheSmallest
 {
     public static function smallest($n) {
-        // create three identical arrays to manipulate
-        $splitToSort = $splitToWork = $sliceMe = str_split($n);
+        $num = strval($n);
+        $arrVal = str_split($n, 1);
+        sort($arrVal);
+        $highest = array_pop($arrVal);
+        $lowest = array_shift($arrVal);
 
-        // sort one by asc order
-        sort($splitToSort);
+            //if ??
+            $i = strpos($n, $lowest);
+            $j = strpos($n, $highest)-1;
+            $res=$num[$i];
+            $num[$i-1]=$num[$j];
+            $num[$i]=$num[$j+1];
+            $num[$j]=$res;
 
-        //check for 0 at index 1
-        if ($splitToWork[1]==0) {
-            $mover = $splitToWork[0];
-        // check for large start and zeros
-        } else if ($splitToSort[count($splitToSort)-1]===$splitToWork[0] && in_array(0, $splitToSort)) {
-            $mover = 0;
-        // check if $n didn't already start with it's highest/lowest digit
-        } else if ($splitToSort[count($splitToSort)-1]===$splitToWork[0]) {
-            $mover = $splitToSort[count($splitToSort)-1];
-        } else if ($splitToSort[0]!==$splitToWork[0]) {
-            $mover = $splitToSort[0];
-        } else {
-            $mover = $splitToSort[1];
+        if ($num[1]==0) {
+            //if zero is second
+            $i = strpos($n, $lowest)-1;
+            $j = strpos($n, $highest)-1;
+            $res=$num[$i];
+            $num[$i]=$num[$j];
+            $num[$j]=$res;
         }
 
-        //count reoccuances to set output param
-        $bunch = array_keys($splitToWork, $mover);
-        $count = count($bunch);
-        if ($count>1 && $splitToWork[0]===$mover) {
-            $withoutFirst = array_slice($sliceMe, 1);
-            $indexOfMoverOri = array_search($mover, $withoutFirst)+1;
-        } else if ($count>1) {
-            $indexOfMoverOri = array_search($mover, array_reverse($splitToWork, true));            
-        } else {
-            $indexOfMoverOri = array_search($mover, $splitToWork);
-        }
-
-        // set other output params
-        $indexOfMoverNow = array_search($mover, $splitToSort);
-
-        // if it isn't just all reoccuring...
-        if ((array_reduce($splitToWork, fn ($a, $b) => $a+$b, 0)/$splitToWork[0])===count($splitToWork)) {
-            $indexOfMoverNow = 0;
-            $indexOfMoverOri = 0;
-        } else {
-            // remove the digit to be "repositioned"
-            unset($splitToWork[$indexOfMoverOri]);
-    
-            // re-position lowest digit
-            array_splice($splitToWork, $indexOfMoverNow, 0, $mover);
-        }    
-
-        // set new $n value to be returned
-        $newN = intval(implode('', $splitToWork));
-
-        // return an array of desired params
-        var_dump($mover);
-        return $indexOfMoverOri!==1 ? [$newN, $indexOfMoverOri, $indexOfMoverNow] : [$newN, $indexOfMoverNow, $indexOfMoverOri];
+        // printworks
+        var_dump($lowest.' lowest in '.$n);
+        var_dump($highest.' highest in '.$n);
+        var_dump($num.' < different? > '.$n);
+        var_dump($i.' = i');
+        var_dump($j.' = j');
+       return [$num, $i, $j];
       }
 }
 
