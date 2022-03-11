@@ -77,6 +77,12 @@ class FindTheSmallestTest extends TestCase
         $this->revTest(FindTheSmallest::smallest(111111111)[2], 0);
     }   
 
+    /**@test */
+    public function test_it_works_with_zero_second() {
+        $this->revTest(FindTheSmallest::smallest(8011801799164345)[0], 118017899164345);
+        $this->revTest(FindTheSmallest::smallest(8011801799164345)[1], 0);
+        $this->revTest(FindTheSmallest::smallest(8011801799164345)[2], 7);
+    }   
     //TODO - figure out tests for error below
     // Failed asserting that two arrays are equal.
     // Expected: Array (

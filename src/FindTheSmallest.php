@@ -5,14 +5,17 @@ namespace App;
 class FindTheSmallest
 {
     public static function smallest($n) {
-        // create two identical arrays to manipulate
+        // create three identical arrays to manipulate
         $splitToSort = $splitToWork = $sliceMe = str_split($n);
 
         // sort one by asc order
         sort($splitToSort);
 
+        //check for 0 at index 1
+        if ($splitToWork[1]==0) {
+            $mover = $splitToWork[0];
         // check for large start and zeros
-        if ($splitToSort[count($splitToSort)-1]===$splitToWork[0] && in_array(0, $splitToSort)) {
+        } else if ($splitToSort[count($splitToSort)-1]===$splitToWork[0] && in_array(0, $splitToSort)) {
             $mover = 0;
         // check if $n didn't already start with it's highest/lowest digit
         } else if ($splitToSort[count($splitToSort)-1]===$splitToWork[0]) {
@@ -54,6 +57,7 @@ class FindTheSmallest
         $newN = intval(implode('', $splitToWork));
 
         // return an array of desired params
+        var_dump($mover);
         return $indexOfMoverOri!==1 ? [$newN, $indexOfMoverOri, $indexOfMoverNow] : [$newN, $indexOfMoverNow, $indexOfMoverOri];
       }
 }
