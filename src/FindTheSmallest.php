@@ -5,36 +5,29 @@ namespace App;
 class FindTheSmallest
 {
     public static function smallest($n) {
-        $num = strval($n);
-        $arrVal = str_split($n, 1);
-        sort($arrVal);
-        $highest = array_pop($arrVal);
-        $lowest = array_shift($arrVal);
+        $work = str_split($n, 1);
 
-            //if ??
-            $i = strpos($n, $lowest);
-            $j = strpos($n, $highest)-1;
-            $res=$num[$i];
-            $num[$i-1]=$num[$j];
-            $num[$i]=$num[$j+1];
-            $num[$j]=$res;
+        $low = array_reduce($work, fn ($a, $b) => $a<$b ? $a : $b, 9 );
 
-        if ($num[1]==0) {
-            //if zero is second
-            $i = strpos($n, $lowest)-1;
-            $j = strpos($n, $highest)-1;
-            $res=$num[$i];
-            $num[$i]=$num[$j];
-            $num[$j]=$res;
-        }
+        $i = array_search($low, $work);//lowest index of digit moved
+
+        unset($work[$i]);
+
+        $high = array_reduce($work, fn ($a, $b) => $a>$b ? $a : $b, 0);
+
+        $j = array_search($high, $work)-1;//new index of moved digit
+
+        $reset = array_merge(array_slice($work, 0, $j), array($low), array_slice($work, $j));
+        
+        $num = implode('', $reset);//new version of number
 
         // printworks
-        var_dump($lowest.' lowest in '.$n);
-        var_dump($highest.' highest in '.$n);
-        var_dump($num.' < different? > '.$n);
-        var_dump($i.' = i');
+        // var_dump($low.' lowest in '.$n);
+        var_dump($high.' highest in '.$n);
+        // var_dump($num.' < different? > '.$n);
+        // var_dump($i.' = i');
         var_dump($j.' = j');
-       return [$num, $i, $j];
+       return [(int)$num, $i, (int)$j];
       }
 }
 
