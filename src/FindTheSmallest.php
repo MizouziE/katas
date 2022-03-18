@@ -5,29 +5,43 @@ namespace App;
 class FindTheSmallest
 {
     public static function smallest($n) {
-        $work = str_split($n, 1);
-
-        $low = array_reduce($work, fn ($a, $b) => $a<$b ? $a : $b, 9 );
-
-        $i = array_search($low, $work);//lowest index of digit moved
-
-        unset($work[$i]);
-
-        $high = array_reduce($work, fn ($a, $b) => $a>$b ? $a : $b, 0);
-
-        $j = array_search($high, $work)-1;//new index of moved digit
-
-        $reset = array_merge(array_slice($work, 0, $j), array($low), array_slice($work, $j));
-        
-        $num = implode('', $reset);//new version of number
-
-        // printworks
-        // var_dump($low.' lowest in '.$n);
-        var_dump($high.' highest in '.$n);
-        // var_dump($num.' < different? > '.$n);
-        // var_dump($i.' = i');
-        var_dump($j.' = j');
-       return [(int)$num, $i, (int)$j];
+        //setup
+        $arr = str_split($n, 1);
+        $j = 0;
+        //find smallest from the back
+        $arrR = array_reverse($arr, true);
+        $iV = 9;
+        foreach ($arrR as $k => $v) {
+            if ($v<$iV) {
+                $iV = $v;
+                $iEasy = $k;
+            }
+        //check for dodgy start and asign $i accordingly
+        $arrRCheck = array_slice($arrR, 0, count($arrR)-1, true);
+        $iVCheck = 9;
+        foreach ($arrRCheck as $k => $v) {
+            if ($v<$iVCheck) {
+                $iVCheck = $v;
+                $iCheck = $k;
+            }
+        if ($iEasy == $iCheck) {
+            $i = $iEasy;
+        } else {
+            $i = $iCheck;
+        }
+        }
+        }
+        var_dump("\n");
+        var_dump($arrR);
+        var_dump($arrRCheck);
+        var_dump("i = ".$i);
+        var_dump("iEasy = ".$iEasy);
+        var_dump("iCheck = ".$iCheck);
+        return [
+            // $res,
+            $i,
+            $j
+        ];
       }
 }
 
