@@ -23,7 +23,7 @@ class Rainfall
     }
     public static function variance($town, $string)
     {
-        $mean = mean($town, $string);
+        $mean = self::mean($town, $string);
 
         $arrayData = explode("\n", $string);
         $res = [];
