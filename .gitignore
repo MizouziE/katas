@@ -1,3 +1,5 @@
+.phpunit.cache
+vendor/*
 vendor/autoload.php
 vendor/bin/php-parse
 vendor/bin/phpunit
