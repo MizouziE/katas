@@ -13,7 +13,7 @@ A collection of exercises to practice thinking like a programmer. Those from Lar
 5. Make it Fast.
 
 ## Special features of **this** collection
-Each was done with a *TDD* approach before being refactored
+Those from Laracasts were done with a *TDD* approach before being refactored while *TDD* was adopted later on during the progressive inclusion of CodeWars katas, particularly katas ranked **5kyu** and higher.
 
 ### Special features of **this** README file
 Just wanted to play around with writing markdown a little. Let's hope all the fancy bits work first time and I won't need to do multiple commits! :joy:
